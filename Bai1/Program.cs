@@ -71,5 +71,44 @@ namespace Bai1
             }
             return sum;
         }
+
+        //2e
+        public static int BoundariesProduct(int[,] matrix)
+        {
+            int product = 1;
+            int rows = matrix.GetLength(0);
+            int columns = matrix.GetLength(1);
+            for (int i = 0; i < rows; i++)
+            {
+                product *= matrix[i, 0];
+                product *= matrix[i, columns - 1];
+            }
+            for (int i = 1; i < columns - 1; i++)
+            {
+                product *= matrix[0, i];
+                product *= matrix[rows - 1, i];
+            }
+            return product;
+        }
+
+        //2f
+        public static bool IsSymmetric(int[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int columns = matrix.GetLength(1);
+
+            if (rows != columns)
+                return false; //if not square, not symmetric
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (matrix[i, j] != matrix[j, i])
+                        return false;
+                }
+            }
+            return true;
+        }
     }
 }
