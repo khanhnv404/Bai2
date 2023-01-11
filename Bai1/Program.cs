@@ -39,5 +39,37 @@ namespace Bai1
                 Console.WriteLine();
             }
         }
+
+        // 2. c
+        public static int UpperTriangleSum(int[,] matrix)
+        {
+            int sum = 0;
+            int rows = matrix.GetLength(0);
+            int columns = matrix.GetLength(1);
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = i; j < columns; j++)
+                {
+                    sum += matrix[i, j];
+                }
+            }
+            return sum;
+        }
+
+        //2.d
+        public static int LowerTriangleSum(int[,] matrix)
+        {
+            int sum = 0;
+            int rows = matrix.GetLength(0);
+            int columns = matrix.GetLength(1);
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j <= i; j++)
+                {
+                    sum += matrix[i, j];
+                }
+            }
+            return sum;
+        }
     }
 }
